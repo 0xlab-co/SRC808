@@ -1,8 +1,8 @@
 # SRC808
 
-**Per-App Volume Control for macOS**
+**All your audio apps. One control panel on macOS.**
 
-SRC808 gives you independent volume sliders for each app on your Mac — seamless integration, zero compromises. Intercepts each app's audio stream before it hits the system mixer, giving you per-app volume with no quality loss.
+SRC808 brings the audio apps currently running on your Mac and your output devices into one menu bar panel, so you can check, adjust, and manage everything without constantly switching between windows.
 
 **[Download Latest App Release](https://github.com/0xlab-co/SRC808/releases/latest)**
 
@@ -11,14 +11,13 @@ SRC808 gives you independent volume sliders for each app on your Mac — seamles
 ## What It Does
 
 - **Free Core Features**:
-  - **Per-App Volume**: Spotify at 80%, Discord at 40%, YouTube at 60% — all simultaneously and independently.
-  - **Seamless Volume Keys**: Perfectly integrates with your Mac's native volume keys, automatically adjusting to your active output device.
-  - **DDC Display Support**: Controls external monitor volume directly — no need for the display's OSD menu.
-  - **Volume HUD**: A sleek overlay at the bottom of your screen shows the current device and volume whenever you press a volume key.
-  - **Volume Memory**: Remembers each app's volume per output device. Switch from headphones to speakers — volumes restore automatically.
+  - **App Volume Control**: Keep Spotify at 80%, Discord at 40%, and YouTube at 60% from one panel without jumping between apps.
+  - **Keyboard Volume for External Displays**: When your audio is coming from a supported external display, your Mac's volume keys can control the display directly.
+  - **Volume HUD**: A clean on-screen panel shows the current output device and volume whenever you press a volume key.
+  - **Per-Device Volume Memory**: SRC808 remembers the levels you use for each app on different output devices, so switching back from headphones to speakers does not mean starting over.
 
 - **Pro Features** (Currently Free in Public Beta):
-  - **Mini Media Controller**: A sleek now-playing panel inside SRC808. See current track info, album art, and control Spotify or Apple Music without ever switching windows.
+  - **Mini Media Controller**: See what is playing in Spotify or Apple Music right inside SRC808, then pause, skip, or resume without leaving the panel.
 
 ---
 
@@ -26,7 +25,7 @@ SRC808 gives you independent volume sliders for each app on your Mac — seamles
 
 ### v1.4.1 Beta (2026-03-11)
 - **In-App Update Notifications** — SRC808 now automatically checks for the latest GitHub releases. A green "UPDATE" pill appears when a new version is ready.
-- **30-Day Pro Trial** — Added a 30-day free trial for all Pro features. View remaining days in Preferences and license status in the header.
+- **30-Day Pro Trial** — Added a 30-day Pro trial for the public beta. The current trial includes Mini Media Controller, and remaining days can be viewed in Preferences.
 - **External Display Mute Fix** — Resolved an issue where muting an external monitor (via HDMI/DP) failed to stop the audio.
 - **Mini Media Controller Sync** — Fixed track info persistence after closing Spotify or Apple Music.
 - **0% Volume Visual Fix** — UI now correctly triggers the mute icon when the slider is dragged to 0%.
@@ -55,17 +54,18 @@ SRC808 gives you independent volume sliders for each app on your Mac — seamles
 ## Licensing (SRC808-v1.4.1-beta-pro)
 **Currently in Public Beta Testing**
 
-SRC808 is currently in its Public Beta phase. During this period, you can enjoy a **30-day free trial** of all advanced Pro media tools. The core volume mixing capabilities will remain permanently free.
+SRC808 is currently in the public beta phase (`SRC808-v1.4.1-beta-pro`). During this period, we provide a **30-day free trial** of Pro features, currently including the Mini Media Controller. After the trial ends, the core per-app volume controls will remain permanently free.
 
-While final pricing and the exact split between Free and Pro are not yet finalized, **we can promise you one thing: SRC808 Pro will never be a subscription.** It will definitely be a one-time purchase. For now, start your trial to experience the full potential of SRC808!
+While final pricing and the exact split between Free and Pro are not yet finalized, **we can promise you one thing: SRC808 Pro will never be a subscription.** It will be a one-time purchase.
 
 ---
 
 ## Privacy & Security
 - **100% Local Processing**: All audio routing and processing happens exclusively on your Mac. No audio data is ever recorded, and no data is ever uploaded to any cloud service.
-- **Permissions Explained**: 
-  - **Microphone Access**: Required only to capture audio streams from other apps for independent routing. SRC808 does not listen to your physical environment.
-  - **System Extension**: Required for high-performance, low-latency audio mixing at the system level.
+- **Permissions Explained**:
+  - **System Extension**: Required for low-latency audio control at the system level.
+  - **Apple Events**: Requested only if you want Spotify / Apple Music integration in Mini Media Controller.
+  - **Media Key Access**: Used only for SRC808's volume HUD and keyboard-based control on supported output devices.
 - **No Tracking**: SRC808 contains no third-party analytics, tracking pixels, or advertisements.
 
 ---
@@ -74,7 +74,7 @@ While final pricing and the exact split between Free and Pro are not yet finaliz
 - macOS Sonoma 14.2 or later
 - Apple Silicon or Intel Mac
 - One-time system extension approval in System Settings → Privacy & Security
-- Microphone permission (required for audio capture)
+- Apple Events permission only if you want Spotify / Apple Music integration in Mini Media Controller
 
 ## Feedback and Support
 If you encounter any issues or have feature requests, please use the provided Issue templates:
@@ -88,9 +88,9 @@ Alternatively, you can reach out via email: [0xlab.co+src808@gmail.com](mailto:0
 
 # SRC808 (繁體中文)
 
-**為 macOS 打造的各 App 獨立音量控制**
+**把所有音訊 App，集中在同一個控制面板。**
 
-SRC808 讓你能獨立調整 Mac 上每個應用程式的音量 — 無縫整合，不用妥協。在音訊進入系統混音器前攔截音訊流，為你帶來不損失音質的獨立音量控制。
+SRC808 會把目前 Mac 上正在運作的音訊 App 與輸出裝置整理到同一個選單列面板裡，讓你不用來回切換視窗，就能直接查看、調整與管理。
 
 **[下載最新版本 App](https://github.com/0xlab-co/SRC808/releases/latest)**
 
@@ -99,14 +99,13 @@ SRC808 讓你能獨立調整 Mac 上每個應用程式的音量 — 無縫整合
 ## 功能介紹
 
 - **免費核心功能**:
-  - **各 App 獨立音量 (Per-App Volume)**: Spotify 80%、Discord 40%、YouTube 60% — 同時並獨立調整。
-  - **無縫音量鍵支援 (Seamless Volume Keys)**: 完美整合 Mac 原生音量鍵，並自動對齊目前正在使用的輸出裝置。
-  - **支援外接螢幕 DDC (DDC Display Support)**: 直接控制外接顯示器的音量 — 不需要再按螢幕上的選單按鈕。
-  - **音量提示 HUD (Volume HUD)**: 每次按下音量鍵時，螢幕底部會出現精美的提示，顯示當前裝置與音量。
-  - **各裝置音量記憶 (Volume Memory)**: 為每一台輸出裝置記憶個別 App 的音量配置。從耳機切換到喇叭時，自動恢復設定。
+  - **控制個別 App 音量 (Per-App Volume)**: 在同一個面板裡直接調整 Spotify、Discord、YouTube 等不同 App 的音量，不用來回切換視窗。
+  - **用鍵盤直接控制外接螢幕音量**: 當聲音輸出到支援的外接螢幕時，可直接使用 Mac 鍵盤上的音量鍵調整螢幕音量。
+  - **音量提示 HUD (Volume HUD)**: 按下音量鍵時，螢幕底部會顯示目前輸出裝置與音量。
+  - **各裝置音量記憶 (Volume Memory)**: SRC808 會記住你在不同輸出裝置上的各自 App 慣用音量，切回原本裝置時不用重調。
 
 - **Pro 專業功能** (公測期間免費開放):
-  - **迷你媒體控制器 (Mini Media Controller)**: 內建在 SRC808 面板中的精緻播放列。免切換視窗，即可查看 Spotify 或 Apple Music 的播放資訊、專輯封面與控制播放。
+  - **迷你媒體控制器 (Mini Media Controller)**: 直接在 SRC808 面板內查看 Spotify 或 Apple Music 的播放內容並控制播放，無需切換視窗。
 
 ---
 
@@ -114,7 +113,7 @@ SRC808 讓你能獨立調整 Mac 上每個應用程式的音量 — 無縫整合
 
 ### v1.4.1 Beta (2026-03-11)
 - **內建版本更新通知**——自動檢查 GitHub 的最新版本，釋出時會在面板頂部顯示「UPDATE」提示。
-- **Pro 專業版 30 天免費試用**——新增 Pro 試用機制，可在偏好設定查看剩餘天數與授權狀態。
+- **Pro 專業版 30 天免費試用**——公開測試期間提供 30 天試用，目前包含 Mini Media Controller，可在偏好設定查看剩餘天數與授權狀態。
 - **修復外接螢幕靜音失效問題**——解決 HDMI/DP 外接螢幕按下靜音鍵後聲音仍持續外放的問題。
 - **修正 Mini Media Controller 資訊殘留**——確保播放控制器資訊與音樂 App 實際運行狀態同步。
 - **音量歸零視覺修正**——修復音量拉至 0% 時未正確觸發靜音圖示的問題。
@@ -143,17 +142,18 @@ SRC808 讓你能獨立調整 Mac 上每個應用程式的音量 — 無縫整合
 ## 授權 (Licensing - SRC808-v1.4.1-beta-pro)
 **目前處於公開 Beta 測試階段**
 
-SRC808 目前正處於公開測試（SRC808-v1.4.1-beta-pro）階段。在測試期間，我們提供 **30 天的 Pro 進階功能免費試用**。核心的各 App 音量控制功能將永久免費提供。
+SRC808 目前正處於公開測試（SRC808-v1.4.1-beta-pro）階段。在測試期間，我們提供 **30 天的 Pro 功能免費試用**，目前包含 Mini Media Controller。試用期結束，核心的各 App 音量控制功能將永久免費提供。
 
-最終售價與 Free / Pro 版本間的詳細功能差異尚未定案，但**我們能保證一件事：SRC808 Pro 絕對不會採用訂閱制。** 將會是一次性買斷的服務。現在，立即啟動您的試用，盡情體驗 SRC808 的完整功能，如果有任何建議，隨時歡迎與我們分享！
+最終售價與 Free / Pro 版本間的詳細功能差異尚未定案，但**我們能保證一件事：SRC808 Pro 絕對不會採用訂閱制。** 將會是一次性買斷的服務。
 
 ---
 
 ## 隱私與安全 (Privacy & Security)
 - **100% 在地化處理**：所有音訊路由與處理程序均完全在您的 Mac 本機上執行。我們絕不錄音，也絕不將任何音訊資料上傳至任何雲端服務。
 - **權限說明**：
-  - **麥克風權限**：僅用於擷取其他應用程式的音訊流以實現獨立控制。SRC808 絕不會聆聽或記錄您的環境語音。
-  - **系統延伸功能**：用於在系統層級實現高效能、低延遲的音訊混音。
+  - **系統延伸功能**：用於在系統層級提供低延遲音訊控制。
+  - **Apple Events**：只在您要使用 Mini Media Controller 的 Spotify / Apple Music 整合時才會請求。
+  - **多媒體按鍵權限**：只用來顯示 SRC808 的音量 HUD，以及在支援的輸出裝置上使用鍵盤進行音量控制。
 - **無追蹤與廣告**：SRC808 內不包含任何第三方分析工具、追蹤器或廣告代碼。
 
 ---
@@ -162,7 +162,7 @@ SRC808 目前正處於公開測試（SRC808-v1.4.1-beta-pro）階段。在測試
 - macOS Sonoma 14.2 及其後版本
 - 支援 Apple Silicon (M系列) 或 Intel 晶片 Mac
 - 需於 系統設定 → 隱私權與安全性 完成一次性系統延伸功能授權
-- 需要麥克風權限（用以擷取音訊）
+- 若要使用 Mini Media Controller 的 Spotify / Apple Music 整合，需額外允許 Apple Events
 
 ## 意見回饋與援助
 如果您遇到任何問題，或有新功能許願，歡迎透過內建的 Issue 範本提出：
