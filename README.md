@@ -23,17 +23,17 @@ SRC808 brings the audio apps currently running on your Mac and your output devic
 
 ## Changelog
 
-### v1.4.1 Beta (2026-03-11)
-- **In-App Update Notifications** — SRC808 now automatically checks for the latest GitHub releases. A green "UPDATE" pill appears when a new version is ready.
-- **30-Day Pro Trial** — Added a 30-day Pro trial for the public beta. The current trial includes Mini Media Controller, and remaining days can be viewed in Preferences.
-- **External Display Mute Fix** — Resolved an issue where muting an external monitor (via HDMI/DP) failed to stop the audio.
-- **Mini Media Controller Sync** — Fixed track info persistence after closing Spotify or Apple Music.
-- **0% Volume Visual Fix** — UI now correctly triggers the mute icon when the slider is dragged to 0%.
+### v1.5.2 Beta (2026-03-14)
+- **Fixed launch issues on macOS 14 and older Intel Macs** — Updated the first-launch and feature unlock flow to prevent cases where the app could close immediately or fail to open normally on some machines.
 
 ### v1.4 Beta (2026-03-08)
+- **Mini Media Controller (Pro)** — See what's playing in Spotify or Apple Music directly inside SRC808. Includes track info, cover art, and playback controls.
+- **Stealth Volume HUD & Interface** — SRC808's beautiful volume indicator replaces the native macOS volume HUD, with a more polished preferences experience.
+- **Flawless Bluetooth Audio** — Fixed an issue where volume adjustments on AirPods and other Bluetooth headphones might be unbalanced.
+- **Rock-solid Stability** — Optimized first-time setup, resolved rare crashes, and improved overall stability for newer macOS updates.
 
 ### v1.2 (2026-03-02)
-- **Volume keys follow current output** — supports Bluetooth headphones, USB DACs, and external displays.
+- **Support keyboard shortcuts for external display volume** — when audio is playing through a supported external display, you can control the display volume directly with your keyboard volume keys.
 - **Configurable volume steps** — set the step size per key press (1% to 25%) in Preferences.
 - **New volume HUD** — redesigned on-screen display matches the app's style, showing at the bottom of the screen.
 
@@ -51,12 +51,16 @@ SRC808 brings the audio apps currently running on your Mac and your output devic
 
 ---
 
-## Licensing (SRC808-v1.4.1-beta-pro)
+## Licensing (SRC808-v1.5.2-beta-pro)
 **Currently in Public Beta Testing**
 
-SRC808 is currently in the public beta phase (`SRC808-v1.4.1-beta-pro`). During this period, we provide a **30-day free trial** of Pro features, currently including the Mini Media Controller. After the trial ends, the core per-app volume controls will remain permanently free.
+SRC808 is currently in the public beta phase (`SRC808-v1.5.2-beta-pro`). During this period, we provide a **30-day free trial** of Pro features, currently including the Mini Media Controller. After the trial ends, the core per-app volume controls will remain permanently free.
 
 While final pricing and the exact split between Free and Pro are not yet finalized, **we can promise you one thing: SRC808 Pro will never be a subscription.** It will be a one-time purchase.
+
+### Repository Notice
+This repository is provided for official product information, release notes, and download guidance.
+All rights reserved unless otherwise stated.
 
 ---
 
@@ -111,17 +115,17 @@ SRC808 會把目前 Mac 上正在運作的音訊 App 與輸出裝置整理到同
 
 ## 更新日誌 (Changelog)
 
-### v1.4.1 Beta (2026-03-11)
-- **內建版本更新通知**——自動檢查 GitHub 的最新版本，釋出時會在面板頂部顯示「UPDATE」提示。
-- **Pro 專業版 30 天免費試用**——公開測試期間提供 30 天試用，目前包含 Mini Media Controller，可在偏好設定查看剩餘天數與授權狀態。
-- **修復外接螢幕靜音失效問題**——解決 HDMI/DP 外接螢幕按下靜音鍵後聲音仍持續外放的問題。
-- **修正 Mini Media Controller 資訊殘留**——確保播放控制器資訊與音樂 App 實際運行狀態同步。
-- **音量歸零視覺修正**——修復音量拉至 0% 時未正確觸發靜音圖示的問題。
+### v1.5.2 Beta (2026-03-14)
+- **修正 macOS 14 與舊款 Intel Mac 的啟動問題**——調整首次啟動與功能解鎖流程，解決部分裝置上可能直接關閉或無法正常開啟的情況。
 
 ### v1.4 Beta (2026-03-08)
+- **Mini Media Controller (Pro)**——直接在 SRC808 面板內查看 Spotify 或 Apple Music 的現正播放資訊，包含封面與播放控制。
+- **專屬音量 HUD 與介面優化**——音量提示現在能取代系統原生的音量圖示，同時也優化了偏好設定的互動流程與待機應用程式顯示。
+- **修正藍牙立體聲**——解決了在 AirPods 或藍牙耳機上調整音量時，可能出現左右聲道些微不平衡的問題。
+- **整體穩定性提升**——優化首次解鎖功能時的權限請求流程，修復少見的閃退錯誤，提升整體穩定度與相容性。
 
 ### v1.2 (2026-03-02)
-- **音量鍵跟隨當前輸出裝置**——支援藍牙耳機、USB DAC 及外接螢幕。
+- **支援鍵盤快捷鍵調整外接螢幕音量**——當聲音輸出到支援的外接螢幕時，可直接用鍵盤音量鍵控制螢幕音量。
 - **可自定音量步幅**——在偏好設定中設定每次按鍵增減幅度（1%～25%）。
 - **全新音量 HUD**——重新設計的提示介面，與 App 風格一致，顯示於螢幕底部。
 
@@ -139,12 +143,16 @@ SRC808 會把目前 Mac 上正在運作的音訊 App 與輸出裝置整理到同
 
 ---
 
-## 授權 (Licensing - SRC808-v1.4.1-beta-pro)
+## 授權 (Licensing - SRC808-v1.5.2-beta-pro)
 **目前處於公開 Beta 測試階段**
 
-SRC808 目前正處於公開測試（SRC808-v1.4.1-beta-pro）階段。在測試期間，我們提供 **30 天的 Pro 功能免費試用**，目前包含 Mini Media Controller。試用期結束，核心的各 App 音量控制功能將永久免費提供。
+SRC808 目前正處於公開測試（SRC808-v1.5.2-beta-pro）階段。在測試期間，我們提供 **30 天的 Pro 功能免費試用**，目前包含 Mini Media Controller。試用期結束，核心的各 App 音量控制功能將永久免費提供。
 
 最終售價與 Free / Pro 版本間的詳細功能差異尚未定案，但**我們能保證一件事：SRC808 Pro 絕對不會採用訂閱制。** 將會是一次性買斷的服務。
+
+### Repository 說明
+此 repository 主要提供官方產品資訊、更新日誌與下載指引。
+除另有說明外，相關內容均保留所有權利。
 
 ---
 
