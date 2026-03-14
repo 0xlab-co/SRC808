@@ -3524,10 +3524,17 @@
         if (!releases || releases.length === 0) return;
         const data = releases[0]; // Take the most recent release (includes pre-releases)
 
-        // Prefer .dmg, but fall back to .zip if needed
+        // Prefer .dmg, but fall back to an uploaded app .zip (not GitHub source archives)
         const releaseAsset =
           data.assets.find(a => a.name.toLowerCase().endsWith('.dmg')) ||
-          data.assets.find(a => a.name.toLowerCase().endsWith('.zip'));
+          data.assets.find(a => {
+            const name = a.name.toLowerCase();
+            return (
+              name.endsWith('.zip') &&
+              name.includes('src808') &&
+              !name.includes('source code')
+            );
+          });
         if (!releaseAsset) return;
 
         const downloadUrl = releaseAsset.browser_download_url;
