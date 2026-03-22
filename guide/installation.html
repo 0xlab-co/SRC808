@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SRC808 安裝指南</title>
+  <meta name="description" content="SRC808 安裝與初次啟動指南，包含 menu bar 圖示、基本面板介紹、權限說明與第一次使用建議。" />
+  <link rel="canonical" href="https://0xlab-co.github.io/SRC808/guide/installation.html" />
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+  <meta name="theme-color" content="#09090B" />
+  <style>
+    :root {
+      --bg: #09090B;
+      --card: #1C1C21;
+      --border: rgba(228, 228, 232, 0.05);
+      --text: #E4E4E8;
+      --muted: #8E8E9F;
+      --green: #39FF14;
+      --accent: #4ADE80;
+      --radius: 14px;
+      --mono: "SF Mono", "Fira Code", "Cascadia Code", ui-monospace, monospace;
+      --nav-bg: rgba(9, 9, 11, 0.85);
+      --card-inner: rgba(9, 9, 11, 0.5);
+      --mockup-shadow: 0 32px 80px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.03);
+      --btn-primary-text: #09090B;
+      --hover-bg: rgba(255, 255, 255, 0.06);
+      --mobile-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scrollbar-gutter: stable both-edges;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      height: 100dvh;
+      min-height: 100vh;
+      min-height: 100dvh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang TC", sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    nav {
+      position: relative;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 28px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 12px rgba(57, 255, 20, 0.8);
+    }
+
+    .nav-title {
+      font-family: var(--mono);
+      font-size: 13px;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+      transition: color .15s;
+    }
+
+    .nav-links a:hover,
+    .section-nav a:hover {
+      color: var(--text);
+    }
+
+    .nav-links .primary-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      background: var(--accent);
+      color: var(--btn-primary-text);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .nav-links .primary-link:hover {
+      color: var(--btn-primary-text);
+      opacity: .88;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 28px;
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr) 240px;
+      gap: 28px;
+      align-items: stretch;
+      overflow: hidden;
+    }
+
+    .sidebar,
+    .rightbar {
+      height: 100%;
+    }
+
+    .sidebar {
+      width: 100%;
+      max-width: 260px;
+    }
+
+    .rightbar {
+      width: 100%;
+      max-width: 240px;
+    }
+
+    .callout,
+    .mockup {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--mobile-shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--green);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-nav {
+      margin-top: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .sidebar-group {
+      display: grid;
+      gap: 6px;
+    }
+
+    .sidebar-group+.sidebar-group {
+      margin-top: 8px;
+    }
+
+    .sidebar-label {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+    }
+
+    .section-nav a {
+      display: block;
+      text-decoration: none;
+      color: var(--muted);
+      border: 1px solid transparent;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: 14px;
+      transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .section-nav a.active {
+      color: var(--text);
+      background: rgba(74, 222, 128, 0.08);
+      border-color: rgba(74, 222, 128, 0.18);
+    }
+
+    .outline {
+      border-left: 1px solid rgba(228, 228, 232, 0.25);
+      padding-left: 18px;
+      margin-top: 4px;
+    }
+
+    .outline-title {
+      margin: 0 0 16px;
+      font-size: 20px;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    .outline-nav {
+      display: grid;
+      gap: 4px;
+    }
+
+    .outline-hint {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .outline-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.45;
+      padding: 6px 0;
+      transition: color 0.18s ease;
+    }
+
+    .outline-nav a:hover {
+      color: var(--text);
+    }
+
+    .outline-nav a.active {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .main {
+      min-width: 0;
+      height: 100%;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .main-scroll {
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 0;
+      scrollbar-gutter: stable;
+      overscroll-behavior: contain;
+    }
+
+    .hero {
+      padding: 30px 0 84px;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .hero.is-hidden {
+      display: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .hero-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 6px rgba(57, 255, 20, 0.7);
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6.4vw, 62px);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 0 0 20px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 44px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity .15s, transform .1s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn:hover {
+      opacity: .85;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--btn-primary-text);
+    }
+
+    .btn-secondary {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .mockup {
+      margin: 72px auto 0;
+      max-width: 780px;
+      border-radius: 18px;
+      box-shadow: var(--mockup-shadow);
+      overflow: hidden;
+    }
+
+    .mockup-bar {
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mockup-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mockup-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 2px;
+    }
+
+    .mockup-body {
+      padding: 12px;
+    }
+
+    .mockup-body img {
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .mockup-caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .content-card {
+      display: none;
+      padding: 0;
+      margin-bottom: 42px;
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      scroll-margin-top: 16px;
+    }
+
+    .content-card.is-active {
+      display: block;
+    }
+
+    .content-card h3 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .content-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .content-card ul,
+    .content-card ol {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .content-card li+li {
+      margin-top: 8px;
+    }
+
+    .doc-subsection+.doc-subsection {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .doc-subsection {
+      scroll-margin-top: 16px;
+    }
+
+    .doc-subsection h4 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+
+    .doc-subsection p:last-child,
+    .doc-subsection ul:last-child,
+    .doc-subsection ol:last-child {
+      margin-bottom: 0;
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .callout {
+      padding: 18px;
+      background: var(--card-inner);
+    }
+
+    .callout strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .badge-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .menu-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(74, 222, 128, 0.2);
+      background: rgba(74, 222, 128, 0.08);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      margin: 10px 0 16px;
+    }
+
+    .menu-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 10px rgba(57, 255, 20, 0.85);
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .panel-card {
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card-inner);
+    }
+
+    .panel-card h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .panel-card p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .mini-steps {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .mini-step {
+      display: grid;
+      grid-template-columns: 32px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: var(--card-inner);
+    }
+
+    .mini-step .num {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #09110b;
+      background: var(--green);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .mini-step strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .info-item {
+      border-left: 3px solid rgba(74, 222, 128, 0.6);
+      padding: 0 0 0 14px;
+    }
+
+    .info-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    footer {
+      position: relative;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 32px 0;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s ease-in-out;
+    }
+
+    footer a:hover {
+      color: var(--text);
+    }
+
+    .company-logo {
+      fill: var(--muted);
+      transition: fill 0.2s ease, transform 0.2s ease;
+    }
+
+    .logo-link:hover .company-logo {
+      fill: var(--text);
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 1180px) {
+      .page {
+        grid-template-columns: 240px minmax(0, 1fr);
+      }
+
+      .rightbar {
+        display: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .nav-inner {
+        height: 56px;
+        padding: 0 30px;
+      }
+
+      .page {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+
+      .nav-links {
+        gap: 12px;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .nav-links li {
+        flex: 0 0 auto;
+      }
+    }
+
+    @media (max-width: 960px) {
+      body {
+        display: block;
+        overflow-y: auto;
+      }
+
+      nav,
+      footer {
+        position: static;
+      }
+
+      .page {
+        height: auto;
+        margin-top: 0;
+        overflow: visible;
+        padding-top: 26px;
+        padding-bottom: 72px;
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar,
+      .rightbar {
+        position: static;
+        height: auto;
+        max-width: none;
+      }
+
+      .main {
+        height: auto;
+        overflow: visible;
+      }
+
+      .main-scroll {
+        height: auto;
+        overflow: visible;
+        padding-right: 0;
+      }
+
+      .grid-two,
+      .panel-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero-sub {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 640px) {
+
+      .nav-inner,
+      .page,
+      .container {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+
+      .nav-inner {
+        height: auto;
+        min-height: 56px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .content-card {
+        padding: 0;
+      }
+
+      .content-card h3 {
+        font-size: 24px;
+      }
+
+      .hero {
+        padding: 84px 0 64px;
+      }
+
+      .content-card,
+      .doc-subsection {
+        scroll-margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-brand" href="../index.html">
+        <span class="nav-dot"></span>
+        <span class="nav-title">SRC808</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">首頁</a></li>
+        <li><a href="../index.html#requirements">系統需求</a></li>
+        <li><a href="./installation.html">指南</a></li>
+        <li><a class="primary-link" href="https://github.com/0xlab-co/SRC808/releases/latest" target="_blank"
+            rel="noopener noreferrer">下載最新版本</a></li>
+        <li><a href="https://github.com/0xlab-co/SRC808" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="page">
+    <aside class="sidebar">
+      <nav class="section-nav" aria-label="Guide sections">
+        <div class="sidebar-group">
+          <div class="sidebar-label">Get Started</div>
+          <a href="#before-install">安裝前確認</a>
+          <a href="#install-steps">下載與安裝</a>
+          <a href="#first-run">第一次建議操作</a>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-label">Using SRC808</div>
+          <a href="#menu-bar">menu bar 圖示</a>
+          <a href="#panel-overview">基本界面介紹</a>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-label">Permissions & Help</div>
+          <a href="#permissions">權限說明</a>
+          <a href="#troubleshooting">常見狀況</a>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <div class="main-scroll" id="mainScroll">
+      <section class="hero">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Installation Guide · menu bar onboarding
+        </div>
+        <h1>安裝完成後<br><span>從 menu bar</span> 開始</h1>
+        <p class="hero-sub">
+          這份指南會帶你完成第一次啟動流程<br>包含圖示位置、基本面板區塊與權限說明
+        </p>
+        <div class="mockup">
+          <div class="mockup-bar">
+            <div class="mockup-brand">
+              <span class="nav-dot" style="width:6px;height:6px;"></span>
+              <span class="mockup-title">SRC808</span>
+            </div>
+          </div>
+          <div class="mockup-body">
+            <img src="../assets/SRC808.png" alt="SRC808 主畫面預覽" />
+            <p class="mockup-caption">目前公開版本的面板預覽。實際使用時會由 menu bar 圖示進入。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-card" id="before-install">
+        <p class="eyebrow">01</p>
+        <h3>安裝前確認</h3>
+        <p>在開始之前，先確定你的 Mac 符合基本條件。這裡延續首頁的 Requirements，但改成更接近操作前檢查表的寫法。</p>
+        <div class="doc-subsection" id="req-environment">
+          <h4>需要的環境</h4>
+          <div class="callout">
+            <ul>
+              <li>macOS Sonoma 14.2 或更新版本</li>
+              <li>Apple Silicon 或 Intel Mac</li>
+              <li>能接受第一次啟動時出現系統權限提示</li>
+            </ul>
+          </div>
+        </div>
+        <div class="doc-subsection" id="req-prompts">
+          <h4>你可能會看到的提示</h4>
+          <div class="callout">
+            <ul>
+              <li>Driver Extension 批准</li>
+              <li>Apple Events 權限</li>
+              <li>媒體鍵相關權限提示</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-card" id="install-steps">
+        <p class="eyebrow">02</p>
+        <h3>下載與安裝</h3>
+        <p>這段保持簡單直接。首頁負責說服，指南頁負責帶你完成第一輪 setup。</p>
+        <div class="doc-subsection" id="install-download">
+          <h4>下載最新版本 DMG</h4>
+          <div class="mini-step">
+            <span class="num">1</span>
+            <div>
+              <strong>從 GitHub Releases 安裝到 Applications</strong>
+              下載最新公開版本後，打開 DMG，將 SRC808 拖曳到 Applications。
+            </div>
+          </div>
+        </div>
+        <div class="doc-subsection" id="install-open">
+          <h4>第一次開啟時允許系統檢查</h4>
+          <div class="mini-step">
+            <span class="num">2</span>
+            <div>
+              <strong>這是正常的 macOS 安全性流程</strong>
+              若 macOS 顯示來自網路下載的 App 提示，依照系統流程確認開啟即可。
+            </div>
+          </div>
+        </div>
+        <div class="doc-subsection" id="install-launch-location">
+          <h4>安裝完成後要去哪裡找</h4>
+          <div class="mini-step">
+            <span class="num">3</span>
+            <div>
+              <strong>先看 menu bar，不是先看 Dock</strong>
+              成功啟動後，SRC808 主要會出現在螢幕右上角的 menu bar，而不是 Dock 中的主視窗式 App。
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-card" id="menu-bar">
+        <p class="eyebrow">03</p>
+        <h3>menu bar 會出現什麼圖示</h3>
+        <p>SRC808 是 menu bar 型產品，所以第一次安裝最常見的疑問就是「我已經打開了，但它在哪裡？」</p>
+        <div class="menu-chip">
+          <span class="menu-dot"></span>
+          <span>SRC808 / menu bar presence</span>
+        </div>
+        <div class="doc-subsection" id="menu-bar-find">
+          <h4>你要找的是螢幕右上角的 menu bar 圖示</h4>
+          <div class="info-item">
+            啟動成功後，SRC808 會駐留在 menu bar。點一下圖示，就會展開主要控制面板。
+          </div>
+        </div>
+        <div class="doc-subsection" id="menu-bar-mismatch">
+          <h4>如果圖示跟文件截圖不完全一樣</h4>
+          <div class="info-item">
+            目前 public beta 仍在調整對外視覺，圖示樣式與正式版可能會再微調，所以不一定代表異常。
+          </div>
+        </div>
+        <div class="doc-subsection" id="menu-bar-missing">
+          <h4>如果你沒看到圖示</h4>
+          <div class="info-item">
+            先確認 App 是否仍在執行，再檢查 menu bar 是否被其他項目擠壓，或先從 Applications 重新打開一次 SRC808。
+          </div>
+        </div>
+      </section>
+
+      <section class="content-card" id="panel-overview">
+        <p class="eyebrow">04</p>
+        <h3>基本界面介紹</h3>
+        <p>點開 menu bar 圖示之後，你看到的會是一個集中式音訊控制面板。這裡建議用「區塊功能」來理解，而不是把它當成傳統偏好設定頁。</p>
+        <div class="doc-subsection" id="panel-output">
+          <h4>Output 區塊</h4>
+          <div class="panel-card">
+            <p>最上方會顯示目前音訊輸出裝置，例如 MacBook 喇叭、耳機或外接顯示器，並附上目前整體音量狀態。</p>
+          </div>
+        </div>
+        <div class="doc-subsection" id="panel-apps">
+          <h4>Active / Standby Apps</h4>
+          <div class="panel-grid">
+            <div class="panel-card">
+              <h4>Active Apps</h4>
+              <p>正在輸出音訊的 App 會列在這裡。你可以逐一調整各自音量，不必來回切換不同視窗。</p>
+            </div>
+            <div class="panel-card">
+              <h4>Standby Apps</h4>
+              <p>暫時沒有播放聲音、但仍可被 SRC808 記住音量狀態的 App 會待在這一區，方便隨時預先調整。</p>
+            </div>
+          </div>
+        </div>
+        <div class="doc-subsection" id="panel-controller">
+          <h4>Mini Media Controller</h4>
+          <div class="panel-card">
+            <p>若你啟用了 Spotify / Apple Music 整合，這裡會顯示目前播放內容與基本播放控制。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-card" id="permissions">
+        <p class="eyebrow">05</p>
+        <h3>第一次啟動可能出現的權限</h3>
+        <p>這些提示不是異常，而是 SRC808 能正常工作的必要條件。重點是讓使用者知道每個提示為什麼出現，而不是只看到系統跳窗就緊張。</p>
+        <div class="doc-subsection" id="perm-driver">
+          <h4>Driver Extension</h4>
+          <div class="mini-step">
+            <span class="num">A</span>
+            <div>
+              <strong>背景穩定運作需要這個授權</strong>
+              讓 SRC808 在背景更穩定地處理相容裝置與音訊控制行為。若系統要求批准，請到「系統設定 → 隱私權與安全性」完成允許。
+            </div>
+          </div>
+        </div>
+        <div class="doc-subsection" id="perm-apple-events">
+          <h4>Apple Events</h4>
+          <div class="mini-step">
+            <span class="num">B</span>
+            <div>
+              <strong>只有在播放資訊整合時才需要</strong>
+              只有當你要讓 Mini Media Controller 顯示 Spotify 或 Apple Music 的播放資訊時才需要。它不是所有使用情境都必須開啟。
+            </div>
+          </div>
+        </div>
+        <div class="doc-subsection" id="perm-media-keys">
+          <h4>媒體鍵相關權限</h4>
+          <div class="mini-step">
+            <span class="num">C</span>
+            <div>
+              <strong>讓 SRC808 顯示自己的音量 HUD</strong>
+              SRC808 需要攔截音量鍵來顯示自己的 HUD，才能把原生 macOS 的音量提示替換成 SRC808 的版本。
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-card" id="first-run">
+        <p class="eyebrow">06</p>
+        <h3>第一次建議操作</h3>
+        <p>如果想讓新使用者在 30 秒內知道這款產品的價值，這裡是最重要的一段。</p>
+        <div class="doc-subsection" id="first-run-device">
+          <h4>先確認目前輸出裝置</h4>
+          <p>先在 menu bar 打開 SRC808，確認目前輸出裝置是否正確，這會直接影響你接下來看到的音量狀態。</p>
+        </div>
+        <div class="doc-subsection" id="first-run-app-volume">
+          <h4>用兩個 App 測一次 per-app volume</h4>
+          <p>播放兩個不同 App 的音訊，試著把其中一個調低，最快能感受到 SRC808 和一般系統音量控制的差異。</p>
+        </div>
+        <div class="doc-subsection" id="first-run-memory">
+          <h4>切換裝置看看記憶是否生效</h4>
+          <p>切換到另一個輸出裝置，再切回來，觀察 SRC808 是否記住音量設定，這是這款產品很核心的價值之一。</p>
+        </div>
+        <div class="doc-subsection" id="first-run-media">
+          <h4>需要時再開 Apple Events</h4>
+          <p>若你會用 Spotify 或 Apple Music，再決定是否授予 Apple Events 來啟用 Mini Media Controller。</p>
+        </div>
+      </section>
+
+      <section class="content-card" id="troubleshooting">
+        <p class="eyebrow">07</p>
+        <h3>常見狀況</h3>
+        <div class="doc-subsection" id="trouble-no-icon">
+          <h4>安裝後沒有看到圖示</h4>
+          <div class="info-item">
+            先確認 SRC808 是否真的還在執行，再重新從 Applications 開啟一次。若仍無反應，優先檢查權限或系統安全性提示是否尚未完成。
+          </div>
+        </div>
+        <div class="doc-subsection" id="trouble-no-apple-events">
+          <h4>為什麼沒有跳 Apple Events？</h4>
+          <div class="info-item">
+            這通常是正常的。只有當你使用 Spotify / Apple Music 播放資訊整合時，系統才需要額外詢問。
+          </div>
+        </div>
+        <div class="doc-subsection" id="trouble-icon-different">
+          <h4>文件中的圖示與我現在看到的不完全一致</h4>
+          <div class="info-item">
+            目前仍是 public beta，對外 icon 與細節視覺還在打磨中。只要功能與 menu bar 行為正常，多半不是故障。
+          </div>
+        </div>
+      </section>
+      </div>
+    </main>
+
+    <aside class="rightbar">
+      <div class="outline" aria-label="Page table of contents">
+        <h2 class="outline-title">On this page</h2>
+        <p id="outlineHint" class="outline-hint">點選左側章節後，這裡會顯示該章節的細項。</p>
+        <nav id="dynamicToc" class="outline-nav"></nav>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p style="margin-bottom: 24px;">
+        喜歡這個專案嗎？歡迎到 <a href="https://github.com/0xlab-co/src808" target="_blank" rel="noopener noreferrer"
+          style="font-weight: 600; text-decoration: underline;">GitHub 為專案點亮 ⭐</a>
+      </p>
+
+      <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
+        <a href="https://github.com/0xlab-co" target="_blank" rel="noopener noreferrer" class="logo-link">
+          <svg width="84" viewBox="0 0 2099.05 628.97" xmlns="http://www.w3.org/2000/svg" class="company-logo">
+            <g>
+              <rect x="62.92" y="62.92" width="62.69" height="125.61" />
+              <rect x="251.68" y="62.92" width="62.69" height="125.61" />
+              <polygon points="0 440.21 62.69 440.21 62.69 314.6 62.69 314.37 62.69 188.76 0 188.76 0 440.21" />
+              <rect x="188.76" y="188.76" width="62.69" height="125.61" />
+              <rect x="125.84" y="314.6" width="62.69" height="125.61" />
+              <polygon
+                points="314.6 188.76 314.6 314.37 314.6 314.6 314.6 440.21 377.29 440.21 377.29 188.76 314.6 188.76" />
+              <rect x="62.92" y="440.44" width="62.69" height="125.61" />
+              <rect x="251.68" y="440.44" width="62.69" height="125.61" />
+              <polygon
+                points="188.53 0 125.84 0 125.84 62.69 188.53 62.69 188.76 62.69 251.45 62.69 251.45 0 188.76 0 188.53 0" />
+              <polygon
+                points="188.53 566.28 125.84 566.28 125.84 628.97 188.53 628.97 188.76 628.97 251.45 628.97 251.45 566.28 188.76 566.28 188.53 566.28" />
+            </g>
+            <g>
+              <polygon
+                points="1155.48 566.28 1092.33 566.28 1092.33 440.44 1092.33 440.21 1092.33 314.6 1092.33 314.37 1092.33 188.76 1092.33 188.53 1092.33 62.92 1029.64 62.92 1029.64 188.53 1029.64 188.76 1029.64 314.37 1029.64 314.6 1029.64 440.21 1029.64 440.44 1029.64 566.28 966.72 566.28 966.49 566.28 903.57 566.28 840.88 566.28 840.88 628.97 840.88 628.97 840.88 628.97 840.88 628.97 903.57 628.97 966.49 628.97 966.72 628.97 1029.41 628.97 1029.64 628.97 1092.33 628.97 1092.56 628.97 1155.48 628.97 1218.17 628.97 1218.17 628.97 1218.17 566.28 1155.48 566.28" />
+              <polygon
+                points="966.72 62.69 1029.41 62.69 1029.41 0 966.72 0 966.49 0 903.8 0 903.8 62.69 966.49 62.69 966.72 62.69" />
+            </g>
+            <g>
+              <polygon
+                points="1281.32 566.05 1344.01 566.05 1344.01 440.44 1344.01 440.21 1344.01 314.6 1281.32 314.6 1281.32 566.05" />
+              <polygon
+                points="1595.92 566.28 1595.92 628.97 1658.61 628.97 1658.61 628.97 1658.61 628.97 1658.61 566.28 1595.92 566.28" />
+              <rect x="1281.32" y="62.92" width="62.69" height="125.61" />
+              <polygon
+                points="1469.85 0 1407.16 0 1406.93 0 1344.24 0 1344.24 62.69 1406.93 62.69 1407.16 62.69 1469.85 62.69 1470.08 62.69 1532.77 62.69 1532.77 0 1470.08 0 1469.85 0" />
+              <polygon
+                points="1406.93 566.28 1344.24 566.28 1344.24 628.97 1406.93 628.97 1407.16 628.97 1469.85 628.97 1469.85 566.28 1407.16 566.28 1406.93 566.28" />
+              <rect x="1344.01" y="188.76" width="125.84" height="125.84" />
+              <rect x="1533" y="62.92" width="62.69" height="503.13" />
+              <rect x="1470.08" y="314.37" width="125.61" height="251.68" />
+            </g>
+            <g>
+              <polygon
+                points="1784.45 0 1721.76 0 1721.76 62.69 1784.68 62.69 1784.68 566.05 1847.37 566.05 1847.37 0 1784.45 0" />
+              <rect x="1784.68" y="314.37" width="125.61" height="251.68" />
+              <polygon
+                points="1973.21 188.76 1910.52 188.76 1910.52 314.37 1973.21 314.37 1973.44 314.37 2036.13 314.37 2036.13 188.76 1973.44 188.76 1973.21 188.76" />
+              <rect x="1721.76" y="566.28" width="62.69" height="62.69" />
+              <rect x="2036.36" y="314.6" width="62.69" height="251.45" />
+              <rect x="1910.52" y="566.28" width="125.61" height="62.69" />
+            </g>
+            <g>
+              <rect x="444.04" y="188.76" width="54.85" height="43.88" />
+              <rect x="719.28" y="188.76" width="54.85" height="43.88" />
+              <rect x="499.09" y="232.8" width="54.85" height="87.91" />
+              <rect x="664.23" y="232.8" width="54.85" height="87.91" />
+              <rect x="609.19" y="320.87" width="54.85" height="87.91" />
+              <rect x="554.14" y="408.94" width="54.85" height="87.91" />
+              <rect x="499.09" y="497.02" width="54.85" height="87.91" />
+              <rect x="664.23" y="497.02" width="54.85" height="87.91" />
+              <rect x="444.04" y="585.09" width="54.85" height="43.88" />
+              <rect x="719.28" y="585.09" width="54.85" height="43.88" />
+            </g>
+          </svg>
+        </a>
+        <div style="width: 1px; height: 16px; background-color: var(--border);"></div>
+        <p>
+          <a href="https://github.com/0xlab-co/SRC808/issues" target="_blank" rel="noopener noreferrer"
+            style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; margin-right: 12px;">Report
+            Issue</a>
+          <a href="#" id="contactEmail"
+            style="color: var(--muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s;">Contact &
+            Support</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const topOutlineMap = [
+      {
+        id: "before-install",
+        subs: [
+          { id: "req-environment", label: "需要的環境" },
+          { id: "req-prompts", label: "可能看到的提示" }
+        ]
+      },
+      {
+        id: "install-steps",
+        subs: [
+          { id: "install-download", label: "下載 DMG" },
+          { id: "install-open", label: "第一次開啟" },
+          { id: "install-launch-location", label: "安裝後去哪裡找" }
+        ]
+      },
+      {
+        id: "menu-bar",
+        subs: [
+          { id: "menu-bar-find", label: "圖示在哪裡" },
+          { id: "menu-bar-mismatch", label: "圖示不同怎麼看" },
+          { id: "menu-bar-missing", label: "沒看到圖示" }
+        ]
+      },
+      {
+        id: "panel-overview",
+        subs: [
+          { id: "panel-output", label: "Output 區塊" },
+          { id: "panel-apps", label: "Active / Standby Apps" },
+          { id: "panel-controller", label: "Mini Media Controller" }
+        ]
+      },
+      {
+        id: "permissions",
+        subs: [
+          { id: "perm-driver", label: "Driver Extension" },
+          { id: "perm-apple-events", label: "Apple Events" },
+          { id: "perm-media-keys", label: "媒體鍵相關權限" }
+        ]
+      },
+      {
+        id: "first-run",
+        subs: [
+          { id: "first-run-device", label: "確認輸出裝置" },
+          { id: "first-run-app-volume", label: "試一次 per-app volume" },
+          { id: "first-run-memory", label: "測試裝置記憶" },
+          { id: "first-run-media", label: "需要時再開 Apple Events" }
+        ]
+      },
+      {
+        id: "troubleshooting",
+        subs: [
+          { id: "trouble-no-icon", label: "沒看到圖示" },
+          { id: "trouble-no-apple-events", label: "沒有跳 Apple Events" },
+          { id: "trouble-icon-different", label: "圖示不完全一致" }
+        ]
+      }
+    ];
+
+    const topIds = topOutlineMap.map((item) => item.id);
+    const outlineByTop = new Map(topOutlineMap.map((item) => [item.id, item.subs]));
+    const subToTop = new Map();
+
+    topOutlineMap.forEach((item) => {
+      item.subs.forEach((sub) => subToTop.set(sub.id, item.id));
+    });
+
+    const heroSection = document.querySelector(".hero");
+    const topLinks = Array.from(document.querySelectorAll(".section-nav a"));
+    const dynamicToc = document.getElementById("dynamicToc");
+    const outlineHint = document.getElementById("outlineHint");
+    const mainScroll = document.getElementById("mainScroll");
+
+    const topSections = new Map(
+      topIds
+        .map((id) => [id, document.getElementById(id)])
+        .filter((entry) => Boolean(entry[1]))
+    );
+
+    let currentTopId = null;
+
+    const isDesktopInnerScroll = () => Boolean(mainScroll && window.innerWidth > 960);
+
+    const setTopActiveState = (topId) => {
+      topLinks.forEach((link) => {
+        const isActive = topId && link.getAttribute("href") === `#${topId}`;
+        link.classList.toggle("active", Boolean(isActive));
+      });
+    };
+
+    let currentSubId = null;
+
+    const setSubActiveState = (subId) => {
+      if (!dynamicToc) return;
+      if (currentSubId === subId) return;
+      currentSubId = subId;
+      const links = dynamicToc.querySelectorAll("a");
+      links.forEach((link) => {
+        const isActive = subId && link.getAttribute("href") === `#${subId}`;
+        link.classList.toggle("active", Boolean(isActive));
+      });
+    };
+
+    const setHeroVisibility = (show) => {
+      if (!heroSection) return;
+      heroSection.classList.toggle("is-hidden", !show);
+    };
+
+    const getScrollOffset = () => {
+      if (isDesktopInnerScroll()) return 16;
+      return 16;
+    };
+
+    const scrollToElementWithOffset = (element, behavior = "auto") => {
+      if (!element) return;
+      if (isDesktopInnerScroll()) {
+        const y =
+          mainScroll.scrollTop +
+          (element.getBoundingClientRect().top - mainScroll.getBoundingClientRect().top) -
+          getScrollOffset();
+        mainScroll.scrollTo({
+          top: Math.max(0, y),
+          behavior
+        });
+        return;
+      }
+
+      const y = element.getBoundingClientRect().top + window.scrollY - getScrollOffset();
+      window.scrollTo({
+        top: Math.max(0, y),
+        behavior
+      });
+    };
+
+    const setContentVisibility = (topId) => {
+      topSections.forEach((section, id) => {
+        section.classList.toggle("is-active", id === topId);
+      });
+    };
+
+    const renderOutline = (topId) => {
+      if (!dynamicToc) return;
+
+      const subs = topId ? outlineByTop.get(topId) || [] : [];
+      dynamicToc.innerHTML = "";
+      currentSubId = null;
+
+      if (outlineHint) {
+        outlineHint.hidden = subs.length > 0;
+      }
+
+      subs.forEach((sub) => {
+        const link = document.createElement("a");
+        link.href = `#${sub.id}`;
+        link.textContent = sub.label;
+        dynamicToc.appendChild(link);
+      });
+    };
+
+    const detectSubByScroll = (topId) => {
+      if (!topId) return null;
+      const subs = outlineByTop.get(topId) || [];
+      if (!subs.length) return null;
+
+      const marker = isDesktopInnerScroll() ? mainScroll.scrollTop + 120 : window.scrollY + 170;
+      let activeSub = subs[0].id;
+
+      subs.forEach((sub) => {
+        const section = document.getElementById(sub.id);
+        if (!section) return;
+
+        const sectionTop = isDesktopInnerScroll()
+          ? mainScroll.scrollTop + (section.getBoundingClientRect().top - mainScroll.getBoundingClientRect().top)
+          : section.offsetTop;
+
+        if (sectionTop <= marker) {
+          activeSub = sub.id;
+        }
+      });
+
+      return activeSub;
+    };
+
+    const setCurrentTop = (topId, options = {}) => {
+      const {
+        scrollToSection = false,
+        preserveHash = false,
+        preferCurrentScrollSub = true
+      } = options;
+
+      if (!topId || !outlineByTop.has(topId) || !topSections.has(topId)) return;
+
+      currentTopId = topId;
+      setTopActiveState(topId);
+      setHeroVisibility(false);
+      setContentVisibility(topId);
+      renderOutline(topId);
+
+      const subs = outlineByTop.get(topId) || [];
+      const fallbackSub = subs[0] ? subs[0].id : null;
+      const activeSub = preferCurrentScrollSub ? detectSubByScroll(topId) || fallbackSub : fallbackSub;
+      setSubActiveState(activeSub);
+
+      if (!preserveHash) {
+        history.replaceState(null, "", `#${topId}`);
+      }
+
+      if (scrollToSection) {
+        const section = topSections.get(topId);
+        if (section) {
+          requestAnimationFrame(() => scrollToElementWithOffset(section));
+        }
+      }
+    };
+
+    const clearCurrentTop = () => {
+      currentTopId = null;
+      setTopActiveState(null);
+      setHeroVisibility(true);
+      setContentVisibility(null);
+      renderOutline(null);
+      setSubActiveState(null);
+      if (isDesktopInnerScroll()) {
+        mainScroll.scrollTo({ top: 0, behavior: "auto" });
+      }
+    };
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const anchor = target.closest("a[href^='#']");
+      if (!(anchor instanceof HTMLAnchorElement)) return;
+
+      const id = anchor.getAttribute("href")?.slice(1);
+      if (!id) return;
+
+      if (outlineByTop.has(id)) {
+        event.preventDefault();
+        setCurrentTop(id, {
+          scrollToSection: true,
+          preserveHash: false,
+          preferCurrentScrollSub: false
+        });
+        return;
+      }
+
+      if (subToTop.has(id)) {
+        event.preventDefault();
+        const topId = subToTop.get(id);
+        setCurrentTop(topId, {
+          scrollToSection: false,
+          preserveHash: true,
+          preferCurrentScrollSub: false
+        });
+        setSubActiveState(id);
+        history.replaceState(null, "", `#${id}`);
+        const subSection = document.getElementById(id);
+        if (subSection) {
+          requestAnimationFrame(() => scrollToElementWithOffset(subSection));
+        }
+      }
+    });
+
+    const onContentScroll = () => {
+      if (!currentTopId) return;
+      setSubActiveState(detectSubByScroll(currentTopId));
+    };
+
+    let boundScrollTarget = null;
+    const bindContentScrollListener = () => {
+      const nextTarget = isDesktopInnerScroll() ? mainScroll : window;
+      if (!nextTarget) return;
+      if (boundScrollTarget === nextTarget) return;
+      if (boundScrollTarget) {
+        boundScrollTarget.removeEventListener("scroll", onContentScroll);
+      }
+      nextTarget.addEventListener("scroll", onContentScroll, { passive: true });
+      boundScrollTarget = nextTarget;
+    };
+
+    bindContentScrollListener();
+    window.addEventListener("resize", () => {
+      bindContentScrollListener();
+      onContentScroll();
+    });
+
+    const initialHash = window.location.hash ? window.location.hash.slice(1) : "";
+
+    if (initialHash && outlineByTop.has(initialHash)) {
+      setCurrentTop(initialHash, {
+        scrollToSection: false,
+        preserveHash: true,
+        preferCurrentScrollSub: false
+      });
+    } else if (initialHash && subToTop.has(initialHash)) {
+      const topId = subToTop.get(initialHash);
+      setCurrentTop(topId, {
+        scrollToSection: false,
+        preserveHash: true,
+        preferCurrentScrollSub: false
+      });
+      setSubActiveState(initialHash);
+    } else {
+      clearCurrentTop();
+    }
+
+    const contactEmail = document.getElementById("contactEmail");
+    if (contactEmail) {
+      contactEmail.addEventListener("click", (event) => {
+        event.preventDefault();
+        const email = "0xlab.co+src808@gmail.com";
+        const textArea = document.createElement("textarea");
+        textArea.value = email;
+        textArea.style.position = "fixed";
+        textArea.style.left = "-9999px";
+        document.body.appendChild(textArea);
+        textArea.select();
+
+        try {
+          document.execCommand("copy");
+          const originalText = contactEmail.innerText;
+          contactEmail.innerText = "Copied!";
+          setTimeout(() => {
+            contactEmail.innerText = originalText;
+          }, 2000);
+        } finally {
+          document.body.removeChild(textArea);
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

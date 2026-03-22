@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SRC808 — Per-App Volume Control for macOS</title>
+  <meta name="description"
+    content="SRC808 lets you control the volume of every app independently on macOS, remember levels per output device, and add focused Pro media controls in the current public beta." />
+  <link rel="canonical" href="https://0xlab-co.github.io/SRC808/" />
+  <meta name="theme-color" content="#09090B" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://0xlab-co.github.io/SRC808/" />
+  <meta property="og:site_name" content="SRC808" />
+  <meta property="og:title" content="SRC808 — Per-App Volume Control for macOS" />
+  <meta property="og:description"
+    content="Control every app's volume independently on macOS, keep levels per output device, and add focused Pro media controls from one menu bar panel." />
+  <meta property="og:image" content="https://0xlab-co.github.io/SRC808/assets/SRC808.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="3412" />
+  <meta property="og:image:height" content="1896" />
+  <meta property="og:image:alt" content="SRC808 social preview card showing per-app volume controls on macOS." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SRC808 — Per-App Volume Control for macOS" />
+  <meta name="twitter:description"
+    content="Control every app's volume independently on macOS, keep levels per output device, and add focused Pro media controls from one menu bar panel." />
+  <meta name="twitter:image" content="https://0xlab-co.github.io/SRC808/assets/SRC808.png" />
+  <meta name="twitter:image:alt" content="SRC808 social preview card showing per-app volume controls on macOS." />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="lang-en">
+  <site-header></site-header>
+
+  <!-- Hero -->
+  <div class="container">
+    <section class="hero">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Public Beta · v1.6.2-beta-core · macOS 14+
+      </div>
+
+      <h1 data-lang="en">
+        Labs<br /><span>Build your ideal audio experience</span>
+      </h1>
+      <h1 data-lang="zh">Labs<br /><span>打造你的理想音訊體驗</span></h1>
+      <h1 data-lang="zh-CN">Labs<br /><span>打造你的理想音频体验</span></h1>
+      <h1 data-lang="ja">
+        Labs<br /><span>理想のオーディオ体験を作ろう</span>
+      </h1>
+      <h1 data-lang="ko">Labs<br /><span>나만의 이상적인 오디오 경험</span></h1>
+
+      <p class="hero-sub" data-lang="en">
+        Everyone has different expectations for Mac audio.<br />
+        Labs is where we explore those possibilities — free, open, ever-evolving.
+      </p>
+      <p class="hero-sub" data-lang="zh">
+        每個人對 Mac 的音訊操作都有不同期待。<br />
+        Labs 是我們探索這些可能性的實驗場——免費、開放、持續演進。
+      </p>
+      <p class="hero-sub" data-lang="zh-CN">
+        每个人对 Mac 的音频操作都有不同期待。<br />
+        Labs 是我们探索这些可能性的实验场——免费、开放、持续演进。
+      </p>
+      <p class="hero-sub" data-lang="ja">
+        Mac のオーディオに対する期待は人それぞれ。<br />
+        Labs はその可能性を探る実験場——無料、オープン、常に進化。
+      </p>
+      <p class="hero-sub" data-lang="ko">
+        Mac 오디오에 대한 기대는 사람마다 다릅니다.<br />
+        Labs는 그 가능성을 탐구하는 실험장 — 무료, 개방, 지속 진화.
+      </p>
+
+      <div class="hero-cta">
+        <a class="btn btn-primary"
+          style="margin-right: 12px; opacity: 0.45; pointer-events: none; cursor: not-allowed;">
+          <span data-lang="en">Chrome Extension — Under Review</span>
+          <span data-lang="zh">Chrome 擴充功能 — 審核中</span>
+          <span data-lang="zh-CN">Chrome 扩展程序 — 审核中</span>
+          <span data-lang="ja">Chrome 拡張機能 — 審査中</span>
+          <span data-lang="ko">Chrome 확장 프로그램 — 심사 중</span>
+        </a>
+      </div>
+
+      <!-- App mockup (UI labels stay in EN) -->
+      <div class="mockup mockup-pro">
+        <div class="mockup-bar">
+          <div class="mockup-brand">
+            <span class="nav-dot" style="width: 6px; height: 6px"></span>
+            <span class="mockup-title">SRC808 <span
+                style="color: #1ed760; font-size: 10px; margin-left: 4px; padding: 2px 6px; border: 1px solid #1ed760; border-radius: 10px;">LABS</span></span>
+          </div>
+          <div class="mockup-icons">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3" />
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" />
+            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="16" />
+              <line x1="8" y1="12" x2="16" y2="12" />
+            </svg>
+          </div>
+        </div>
+        <div class="mockup-body">
+
+          <!-- Chromium Bridge Sources -->
+          <!-- Media 1: Youtube (Chrome) -->
+          <div class="media-player-card">
+            <div class="m-cover" style="background: white">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg"
+                style="width: 24px; height: 24px" alt="Chrome" />
+            </div>
+            <div class="m-info">
+              <div class="m-song">最恐怖的降頭術『 鬼降』 | คุณไสย | 內容較為驚悚，隨時可能下...</div>
+              <div class="m-artist">老王</div>
+            </div>
+            <div class="m-controls">
+              <div class="m-pro-btn">
+                <svg viewBox="0 0 24 24">
+                  <polygon points="19 20 9 12 19 4 19 20"></polygon>
+                  <line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2"></line>
+                </svg>
+              </div>
+              <div class="m-pro-btn play">
+                <svg viewBox="0 0 24 24" style="fill: #000; margin-left: 2px">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+              <div class="m-pro-btn">
+                <svg viewBox="0 0 24 24">
+                  <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                  <line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Media 2: The Pull (Spotify) -->
+          <div class="media-player-card">
+            <div class="m-cover" style="background: linear-gradient(135deg, #1ed760 0%, #159a45 100%)">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="#000">
+                <path
+                  d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
+              </svg>
+            </div>
+            <div class="m-info">
+              <div class="m-song">The Pull</div>
+              <div class="m-artist">paraLlax303</div>
+            </div>
+            <div class="m-controls">
+              <div class="m-pro-btn">
+                <svg viewBox="0 0 24 24">
+                  <polygon points="19 20 9 12 19 4 19 20"></polygon>
+                  <line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2"></line>
+                </svg>
+              </div>
+              <div class="m-pro-btn play">
+                <svg viewBox="0 0 24 24" style="fill: #000">
+                  <rect x="6" y="4" width="4" height="16"></rect>
+                  <rect x="14" y="4" width="4" height="16"></rect>
+                </svg>
+              </div>
+              <div class="m-pro-btn">
+                <svg viewBox="0 0 24 24">
+                  <polygon points="5 4 15 12 5 20 5 4"></polygon>
+                  <line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2"></line>
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- OUTPUT -->
+          <div class="m-card">
+            <div class="m-label">▲ OUTPUT</div>
+            <div class="m-output-row">
+              <div class="m-icon">🖥</div>
+              <div class="m-device">
+                <div class="m-device-name">MSI MD272UPS</div>
+                <div class="m-device-sub">System Output</div>
+              </div>
+              <div class="m-vol-wrap">
+                <div class="m-track">
+                  <div class="m-fill" style="width: 27%"></div>
+                </div>
+                <div class="m-pct">27%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ACTIVE / STANDBY -->
+          <div class="m-row">
+            <div class="m-card">
+              <div class="m-label">▶ ACTIVE</div>
+              <div class="m-app-row">
+                <div class="m-app-icon">🎵</div>
+                <div class="m-app-name">Spotify</div>
+                <div class="m-app-track">
+                  <div class="m-app-fill fill-green" style="width: 80%"></div>
+                </div>
+                <div class="m-app-pct">80%</div>
+              </div>
+              <div class="m-app-row">
+                <div class="m-app-icon">🎮</div>
+                <div class="m-app-name">Discord</div>
+                <div class="m-app-track">
+                  <div class="m-app-fill fill-green" style="width: 40%"></div>
+                </div>
+                <div class="m-app-pct">40%</div>
+              </div>
+            </div>
+            <div class="m-card">
+              <div class="m-label">◼ STANDBY</div>
+              <div class="m-app-row">
+                <div class="m-app-icon">💬</div>
+                <div class="m-app-name">LINE</div>
+                <div class="m-app-track">
+                  <div class="m-app-fill fill-muted" style="width: 30%"></div>
+                </div>
+                <div class="m-app-pct">30%</div>
+              </div>
+              <div class="m-app-row">
+                <div class="m-app-icon">💼</div>
+                <div class="m-app-name">Slack</div>
+                <div class="m-app-track">
+                  <div class="m-app-fill fill-muted" style="width: 50%"></div>
+                </div>
+                <div class="m-app-pct">50%</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="labs">
+      <div class="section-label" data-lang="en">
+        Experimental Integrations
+      </div>
+      <div class="section-label" data-lang="zh">實驗性整合</div>
+      <div class="section-label" data-lang="zh-CN">实验性整合</div>
+      <div class="section-label" data-lang="ja">実験的な統合</div>
+      <div class="section-label" data-lang="ko">실험적 통합</div>
+
+      <h2 data-lang="en">SRC808 Labs</h2>
+      <h2 data-lang="zh">SRC808 Labs 功能</h2>
+      <h2 data-lang="zh-CN">SRC808 Labs 功能</h2>
+      <h2 data-lang="ja">SRC808 Labs 機能</h2>
+      <h2 data-lang="ko">SRC808 Labs 기능</h2>
+
+      <p class="section-sub" data-lang="en">
+        Labs features are loadable, experimental components—like the Chromium Bridge—that extend SRC808’s capabilities.
+        Note: These require additional browser extensions, their compatibility may vary by site, and they are completely
+        optional for SRC808’s core functionality.
+      </p>
+      <p class="section-sub" data-lang="zh">
+        Labs 中的功能屬於實驗性整合，用於探索媒體來源辨識與控制體驗。這些功能可能需要額外安裝瀏覽器擴充套件，表現可能因網站與瀏覽器版本而異，且不屬於 SRC808 核心音訊控制的必要條件。
+      </p>
+      <p class="section-sub" data-lang="zh-CN">
+        Labs 中的功能属于实验性整合，用于探索媒体来源辨识与控制体验。这些功能可能需要额外安装浏览器扩展程序，表现可能因网站与浏览器版本而异，且不属于 SRC808 核心音频控制的必要条件。
+      </p>
+      <p class="section-sub" data-lang="ja">
+        Labs機能は、SRC808の機能を拡張するChromium
+        Bridgeのようなロード可能な実験的コンポーネントです。注意：これらには追加のブラウザ拡張機能が必要であり、サイトによって互換性が異なる場合があります。また、これらはSRC808のコア機能には必須ではありません。
+      </p>
+      <p class="section-sub" data-lang="ko">
+        Labs 기능은 SRC808의 기능을 확장하는 Chromium Bridge와 같은 로드 가능한 실험적 구성 요소입니다. 참고: 추가 브라우저 확장 프로그램이 필요하며 호환성은 사이트마다 다를 수 있으며
+        SRC808의 핵심 기능에는 필수 사항이 아닙니다.
+      </p>
+
+      <div class="roadmap">
+        <div class="rm-item">
+          <span class="rm-icon">🌐</span>
+          <div class="rm-content">
+            <div class="rm-title">
+              <span data-lang="en">Chromium Bridge</span>
+              <span data-lang="zh">Chromium 瀏覽器連動</span>
+              <span data-lang="zh-CN">Chromium 浏览器联动</span>
+              <span data-lang="ja">Chromium 連携</span>
+              <span data-lang="ko">크로미움 브릿지</span>
+            </div>
+            <div class="rm-desc">
+              <span data-lang="en">Control YouTube and other browser media directly from the Mini Media Controller.
+                Requires installing the companion Chrome Extension.</span>
+              <span data-lang="zh">讓 Mini Media Controller 也能控制 YouTube 與其他瀏覽器分頁媒體。此功能需額外安裝搭配的 Chrome 擴充功能。</span>
+              <span data-lang="zh-CN">让 Mini Media Controller 也能控制 YouTube 与其他浏览器分页媒体。此功能需额外安装搭配的 Chrome 扩展程序。</span>
+              <span data-lang="ja">ミニメディアコントローラーからYouTubeなどのブラウザメディアを直接制御します。専用のChrome拡張機能をインストールする必要があります。</span>
+              <span data-lang="ko">미니 미디어 컨트롤러에서 YouTube 및 기타 브라우저 미디어를 직접 제어합니다. 동반 Chrome 확장 프로그램을 설치해야 합니다.</span>
+            </div>
+          </div>
+          <span class="rm-tag tag-soon">
+            Labs ·
+            <span data-lang="en">Experimental</span>
+            <span data-lang="zh">實驗中</span>
+            <span data-lang="zh-CN">实验中</span>
+            <span data-lang="ja">実験中</span>
+            <span data-lang="ko">실험용</span>
+          </span>
+        </div>
+
+        <div class="rm-item">
+          <span class="rm-icon">🎛️</span>
+          <div class="rm-content">
+            <div class="rm-title">
+              <span data-lang="en">Multi-Source Media Controller</span>
+              <span data-lang="zh">多來源播放控制器</span>
+              <span data-lang="zh-CN">多来源播放控制器</span>
+              <span data-lang="ja">マルチソース メディアコントローラー</span>
+              <span data-lang="ko">멀티 소스 미디어 컨트롤러</span>
+            </div>
+            <div class="rm-desc">
+              <span data-lang="en">Show multiple now-playing sources simultaneously in the Mini Media Controller —
+                Spotify, browser tabs, and other apps — so you can see and control each one independently.</span>
+              <span data-lang="zh">在 Mini Media Controller 同時顯示多個正在播放的來源——Spotify、瀏覽器分頁與其他 App——讓你可以分別查看與控制每個來源。</span>
+              <span data-lang="zh-CN">在 Mini Media Controller 同时显示多个正在播放的来源——Spotify、浏览器分页与其他
+                App——让你可以分别查看与控制每个来源。</span>
+              <span data-lang="ja">ミニメディアコントローラーに複数の再生中ソース（Spotify、ブラウザタブなど）を同時に表示し、それぞれを独立して制御できるようにします。</span>
+              <span data-lang="ko">미니 미디어 컨트롤러에 여러 재생 소스(Spotify, 브라우저 탭 등)를 동시에 표시하고 각각을 독립적으로 제어할 수 있게 합니다.</span>
+            </div>
+          </div>
+          <span class="rm-tag tag-planned">
+            Labs ·
+            <span data-lang="en">Planned</span>
+            <span data-lang="zh">規劃中</span>
+            <span data-lang="zh-CN">规划中</span>
+            <span data-lang="ja">計画中</span>
+            <span data-lang="ko">계획됨</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section id="changelog" style="padding-top: 48px; padding-bottom: 80px;">
+      <div class="section-label" data-lang="en">Extensions Release Notes</div>
+      <div class="section-label" data-lang="zh">擴充套件發佈紀錄</div>
+      <div class="section-label" data-lang="zh-CN">扩展程序发布记录</div>
+      <div class="section-label" data-lang="ja">拡張機能リリースノート</div>
+      <div class="section-label" data-lang="ko">확장 프로그램 릴리스 노트</div>
+
+      <h2 data-lang="en">Public Changelog</h2>
+      <h2 data-lang="zh">公開版本紀錄</h2>
+      <h2 data-lang="zh-CN">公开版本记录</h2>
+      <h2 data-lang="ja">公開変更履歴</h2>
+      <h2 data-lang="ko">공개 변경 내역</h2>
+
+      <div class="changelog" style="margin-top: 48px;">
+        <div class="cl-entry">
+          <div class="cl-version" style="line-height: 1.2">
+            v1.0<br /><span style="font-size: 10px; color: var(--muted)">Ext</span>
+          </div>
+          <div class="cl-body">
+            <div class="cl-badge">
+              ●
+              <span data-lang="en">Initial Release</span>
+              <span data-lang="zh">首次發佈</span>
+              <span data-lang="zh-CN">首次发布</span>
+              <span data-lang="ja">初回リリース</span>
+              <span data-lang="ko">초기 릴리스</span>
+            </div>
+            <div class="cl-date">2026-03-20</div>
+            <ul class="cl-items" data-lang="en">
+              <li>
+                <strong>Chromium Now Playing</strong> — Automatically detect active media playing in Chrome, Edge, and
+                Arc browsers.
+              </li>
+            </ul>
+            <ul class="cl-items" data-lang="zh">
+              <li>
+                <strong>Chromium Now Playing</strong> — 自動偵測並控制 Chrome、Edge 與 Arc 瀏覽器分頁內的媒體播放。
+              </li>
+            </ul>
+            <ul class="cl-items" data-lang="zh-CN">
+              <li>
+                <strong>Chromium Now Playing</strong> — 自动检测并控制 Chrome、Edge 与 Arc 浏览器内的媒体播放。
+              </li>
+            </ul>
+            <ul class="cl-items" data-lang="ja">
+              <li>
+                <strong>Chromium Now Playing</strong> — Chrome、Edge、Arcブラウザでのメディア再生を自動的に検出して制御します。
+              </li>
+            </ul>
+            <ul class="cl-items" data-lang="ko">
+              <li>
+                <strong>Chromium Now Playing</strong> — Chrome, Edge, Arc 브라우저의 미디어 재생을 자동으로 감지하고 제어합니다.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <site-footer></site-footer>
+
+
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
